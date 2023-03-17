@@ -1,5 +1,8 @@
 <template>
-  <formulaire-page></formulaire-page>
+  <bandeau-accueil></bandeau-accueil>
+  <contenu-choix></contenu-choix>
+  <footer-accueil></footer-accueil>
+
 </template>
 
 
@@ -29,7 +32,6 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin-top: 60px;
-  max-width: 800px;
   margin-left: auto;
   margin-right: auto;
 }
