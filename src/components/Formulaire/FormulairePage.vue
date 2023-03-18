@@ -1,5 +1,5 @@
 <template>
-    <div id="formulaire">
+    <div class="container">
         <h2>Rédigez le brief afin d'orienter le graphiste</h2>
 
 
@@ -146,7 +146,7 @@ export default {
 template{
   max-width: 800px;
 }
-#formulaire {
+.container {
     border-style: solid;
     border-width: 1px;
     border-color: #e4e4e4;
