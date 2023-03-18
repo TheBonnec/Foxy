@@ -2,7 +2,6 @@
   <bandeau-accueil></bandeau-accueil>
   <contenu-choix></contenu-choix>
   <footer-accueil></footer-accueil>
-
 </template>
 
 

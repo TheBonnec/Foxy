@@ -153,7 +153,6 @@ template{
     border-radius: 4px;
     max-width: 800px;
     padding: 1rem;
-    align-self: center;
 }
 
 h2 {
