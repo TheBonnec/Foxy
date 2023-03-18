@@ -114,7 +114,7 @@ export default {
         sendMail() {
             Email.send({
                 SecureToken: "3823093d-9172-4b71-bbbe-57eb1ba7c19c",
-                To : this.email,
+                To : "aristide@robin-codreanu.com",
                 From : "fjek2030499332@gmail.com",
                 Subject : "Foxy Test",
                 Body : "<p>Bonjour {{this.lastname}}</p>",
@@ -143,12 +143,15 @@ export default {
 
 
 <style scoped>
+template{
+  max-width: 800px;
+}
 #formulaire {
     border-style: solid;
     border-width: 1px;
     border-color: #e4e4e4;
     border-radius: 4px;
-
+    max-width: 800px;
     padding: 1rem;
 }
 
