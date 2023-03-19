@@ -5,6 +5,7 @@ import FormulairePage from './components/Formulaire/FormulairePage.vue'
 import bandeauAccueil from "./components/bandeau-accueil.vue";
 import footerAccueil from "@/components/footer-accueil.vue";
 import contenuChoix from "@/components/contenu-choix.vue";
+import choixFormule from "@/components/ChoixFormule.vue";
 
 const router = createRouter({
     history: createWebHistory(),
@@ -17,6 +18,7 @@ app.component('FormulairePage', FormulairePage);
 app.component('bandeauAccueil', bandeauAccueil);
 app.component('footerAccueil', footerAccueil);
 app.component('contenuChoix', contenuChoix);
+app.component('choixFormule', choixFormule);
 
 app.use(router);
 app.mount('#app');
