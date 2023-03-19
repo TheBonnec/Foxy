@@ -116,12 +116,26 @@ export default {
 
     methods: {
         sendMail() {
+            var text = `<h3>Nouvelle formulaire rempli !</h3>\
+                <p>Les informations suivantes ont été transmises :</p>\
+                <ul>\
+                    <li>Prénom : ${this.firstname}</li>\
+                    <li>Nom : ${this.lastname}</li>\
+                    <li>Nom de la société : ${this.company}</li>\
+                    <li>Adresse : ${this.adress}</li>\
+                    <li>Code Postal : ${this.postalCode}</li>\
+                    <li>Ville : ${this.city}</li>\
+                    <li>email : ${this.email}</li>\
+                    <li>Téléphone : ${this.phone}</li>\
+                    <li>URL site web : ${this.url}</li>\
+                </ul>`;
+
             Email.send({
                 SecureToken: "3823093d-9172-4b71-bbbe-57eb1ba7c19c",
                 To : "aristide@robin-codreanu.com",
                 From : "fjek2030499332@gmail.com",
                 Subject : "Foxy Test",
-                Body : "<p>Ceci est un mail test de FOXY</p>",
+                Body : text,
             }).then(
                 message => alert(message)
             );
