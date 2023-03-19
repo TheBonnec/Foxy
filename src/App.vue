@@ -3,7 +3,8 @@
     <TopBar></TopBar>
     <TabBar :selected-tab="selectedTab" @update-selected-tab="updateSelectedTab"></TabBar>
   
-    <CommanderPage v-if="selectedTab == 'COMMANDER'"></CommanderPage>
+    <PageAccueil v-if="selectedTab === null"></PageAccueil>
+    <CommanderPage v-else-if="selectedTab === 'COMMANDER'"></CommanderPage>
     <p style="justify-content: center;" v-else>Page en construction</p>
   </div>
 
@@ -18,6 +19,7 @@
 import TabBar from "@/components/General/TabBar.vue";
 import TopBar from "@/components/General/TopBar.vue";
 import FooterBar from "@/components/General/FooterBar.vue";
+import PageAccueil from "@/components/PageAccueil.vue";
 import CommanderPage from "@/components/Commander/CommanderPage.vue";
 
 
@@ -26,13 +28,14 @@ export default {
     TabBar,
     TopBar,
     FooterBar,
+    PageAccueil,
     CommanderPage
 },
   name: 'App',
 
   data() {
     return {
-      selectedTab: "COMMANDER"
+      selectedTab: null
     };
   },
 
