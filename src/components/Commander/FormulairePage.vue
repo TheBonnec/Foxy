@@ -1,60 +1,64 @@
 <template>
-    <div id="formulaire">
-        <h2>Rédigez le brief afin d'orienter le graphiste</h2>
+    <div class="container">
+        <p class="back-button" @click="comeBack">&lt; Commander ou retrouver une commande</p>
+
+        <div id="form">
+            <h2>Rédigez le brief afin d'orienter le graphiste</h2>
 
 
-        <form @submit.prevent>
-            <div class="horizontal">
-                <div class="form-section">
-                    <p>Votre nom</p>
-                    <input id="lastname" name="lastname" type="text" placeholder="Votre nom" v-model="lastname"/>
+            <form @submit.prevent>
+                <div class="horizontal">
+                    <div class="form-section">
+                        <p>Votre nom</p>
+                        <input id="lastname" name="lastname" type="text" placeholder="Votre nom" v-model="lastname"/>
+                    </div>
+                    <div class="form-section">
+                        <p>Votre prénom</p>
+                        <input id="firstname" name="firstname" type="text" placeholder="Votre prénom" v-model="firstname"/>
+                    </div>
                 </div>
+
                 <div class="form-section">
-                    <p>Votre prénom</p>
-                    <input id="firstname" name="firstname" type="text" placeholder="Votre prénom" v-model="firstname"/>
+                    <p>Nom de votre société</p>
+                    <input id="company" name="company" type="text" placeholder="Nom de votre société" v-model="company"/>
                 </div>
-            </div>
 
-            <div class="form-section">
-                <p>Nom de votre société</p>
-                <input id="company" name="company" type="text" placeholder="Nom de votre société" v-model="company"/>
-            </div>
-
-            <div class="form-section">
-                <p>Adresse *</p>
-                <input id="adress" name="adress" type="text" placeholder="Adresse" v-model="adress"/>
-            </div>
-
-            <div class="horizontal">
                 <div class="form-section">
-                    <p>СР *</p>
-                    <input id="postal-code" name="zip" type="text" placeholder="Votre code postal" v-model="postalCode"/>
+                    <p>Adresse *</p>
+                    <input id="adress" name="adress" type="text" placeholder="Adresse" v-model="adress"/>
                 </div>
+
+                <div class="horizontal">
+                    <div class="form-section">
+                        <p>СР *</p>
+                        <input id="postal-code" name="zip" type="text" placeholder="Votre code postal" v-model="postalCode"/>
+                    </div>
+                    <div class="form-section">
+                        <p>Ville *</p>
+                        <input id="city" name="city" type="text" placeholder="Ville" v-model="city"/>
+                    </div>
+                </div>
+
+                <div class="horizontal">
+                    <div class="form-section">
+                        <p>Email *</p>
+                        <input id="email" name="email" type="email" placeholder="Votre adresse mail" v-model="email"/>
+                    </div>
+                    <div class="form-section">
+                        <p>Téléphone *</p>
+                        <input id="phone" name="phone" type="tel" placeholder="Votre N° de Téléphone" v-model="phone"/>
+                    </div>
+                </div>
+
                 <div class="form-section">
-                    <p>Ville *</p>
-                    <input id="city" name="city" type="text" placeholder="Ville" v-model="city"/>
+                    <p>Avez-vous un site internet ? Si oui, merci de nous indiquer son URL</p>
+                    <input id="website" name="website" type="url" placeholder="URL de votre site" v-model="url"/>
                 </div>
-            </div>
 
-            <div class="horizontal">
-                <div class="form-section">
-                    <p>Email *</p>
-                    <input id="email" name="email" type="email" placeholder="Votre adresse mail" v-model="email"/>
-                </div>
-                <div class="form-section">
-                    <p>Téléphone *</p>
-                    <input id="phone" name="phone" type="tel" placeholder="Votre N° de Téléphone" v-model="phone"/>
-                </div>
-            </div>
+                <button @click="sendFormulaire">Envoyer le brief</button>
 
-            <div class="form-section">
-                <p>Avez-vous un site internet ? Si oui, merci de nous indiquer son URL</p>
-                <input id="website" name="website" type="url" placeholder="URL de votre site" v-model="url"/>
-            </div>
-
-            <button @click="sendFormulaire">Envoyer le brief</button>
-
-        </form>
+            </form>
+        </div>
     </div>
 </template>
 
@@ -117,7 +121,7 @@ export default {
                 To : "aristide@robin-codreanu.com",
                 From : "fjek2030499332@gmail.com",
                 Subject : "Foxy Test",
-                Body : "<p>Bonjour {{this.lastname}}</p>",
+                Body : "<p>Ceci est un mail test de FOXY</p>",
             }).then(
                 message => alert(message)
             );
@@ -134,6 +138,9 @@ export default {
             this.phone = "";
             this.url = "";
         },
+        comeBack() {
+            this.$emit('come-back');
+        }
     }
 }
 </script>
@@ -143,15 +150,11 @@ export default {
 
 
 <style scoped>
-template{
-  max-width: 800px;
-}
-#formulaire {
+#form {
     border-style: solid;
     border-width: 1px;
     border-color: #e4e4e4;
     border-radius: 4px;
-    max-width: 800px;
     padding: 1rem;
 }
 
@@ -171,6 +174,7 @@ p {
     color: #6a6a6a;
 }
 
+
 input {
     box-sizing: border-box;
     font-family: Araboto;
@@ -185,6 +189,11 @@ input {
 ::placeholder {
     font-family: Araboto;
     font-size: 1rem;
+}
+
+.back-button {
+    color:#F7931A;
+    margin-bottom: 1rem;
 }
 
 
