@@ -121,7 +121,7 @@ export default {
                 To : "aristide@robin-codreanu.com",
                 From : "fjek2030499332@gmail.com",
                 Subject : "Foxy Test",
-                Body : "<p>Bonjour {{this.lastname}}</p>",
+                Body : "<p>Ceci est un mail test de FOXY</p>",
             }).then(
                 message => alert(message)
             );
