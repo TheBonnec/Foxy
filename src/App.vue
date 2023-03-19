@@ -1,6 +1,6 @@
 <template>
   <bandeau-accueil></bandeau-accueil>
-  <contenu-choix></contenu-choix>
+  <choixFormule></choixFormule>
   <footer-accueil></footer-accueil>
 </template>
 
