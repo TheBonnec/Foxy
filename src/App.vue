@@ -1,8 +1,13 @@
 <template>
-  <TopBar></TopBar>
-  <TabBar :selected-tab="selectedTab" @update-selected-tab="updateSelectedTab"></TabBar>
+  <div id="page-content">
+    <TopBar></TopBar>
+    <TabBar :selected-tab="selectedTab" @update-selected-tab="updateSelectedTab"></TabBar>
   
-  <FormulairePage></FormulairePage>
+    <CommanderPage v-if="selectedTab == 'COMMANDER'"></CommanderPage>
+    <p style="justify-content: center;" v-else>Page en construction</p>
+  </div>
+
+  <FooterBar></FooterBar>
 </template>
 
 
@@ -10,28 +15,34 @@
 
 
 <script>
-import TabBar from "@/components/TabBar.vue";
-import TopBar from "@/components/TopBar.vue";
-import FormulairePage from "@/components/Formulaire/FormulairePage.vue"
+import TabBar from "@/components/General/TabBar.vue";
+import TopBar from "@/components/General/TopBar.vue";
+import FooterBar from "@/components/General/FooterBar.vue";
+import CommanderPage from "@/components/Commander/CommanderPage.vue";
 
 
 export default {
   components: {
     TabBar,
     TopBar,
-    FormulairePage
-  },
+    FooterBar,
+    CommanderPage
+},
   name: 'App',
 
   data() {
     return {
-      selectedTab: null
+      selectedTab: "COMMANDER"
     };
   },
 
   methods: {
     updateSelectedTab(tabName) {
       this.selectedTab = tabName;
+    },
+
+    isSelectedTabEqualTo(value) {
+      return this.selectedTab === value;
     }
   }
 }
@@ -70,6 +81,10 @@ body {
   margin-top: 0;
   margin-left: auto;
   margin-right: auto;
+}
+
+#page-content {
+  min-height: 50vw;
 }
 
 
